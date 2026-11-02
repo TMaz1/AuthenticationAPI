@@ -13,8 +13,12 @@ public class PasswordServiceTests
 
     private static User UserFrom(PasswordHashResult h) => new()
     {
-        Email = "a@example.com", FirstName = "A", PasswordHash = h.Hash, PasswordSalt = h.Salt,
-        PasswordHashVersion = h.Version, PasswordHashIterations = h.Iterations
+        Email = "a@example.com",
+        FirstName = "A",
+        PasswordHash = h.Hash,
+        PasswordSalt = h.Salt,
+        PasswordHashVersion = h.Version,
+        PasswordHashIterations = h.Iterations
     };
 
     [Fact]
@@ -45,8 +49,11 @@ public class PasswordServiceTests
         using var hmac = new HMACSHA512(salt);
         var legacy = new User
         {
-            Email = "old@example.com", FirstName = "Old", PasswordSalt = salt,
-            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("Legacy#Pass1")), PasswordHashVersion = 1
+            Email = "old@example.com",
+            FirstName = "Old",
+            PasswordSalt = salt,
+            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("Legacy#Pass1")),
+            PasswordHashVersion = 1
         };
         var s = Svc();
 

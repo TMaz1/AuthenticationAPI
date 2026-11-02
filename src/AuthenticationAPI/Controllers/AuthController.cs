@@ -1,12 +1,12 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using AuthenticationAPI.Data;
 using AuthenticationAPI.Dtos;
 using AuthenticationAPI.Models.Enums;
 using AuthenticationAPI.Services.Authentication;
 using AuthenticationAPI.Services.Mfa;
 using AuthenticationAPI.Services.Notifications;
 using AuthenticationAPI.Services.Security;
-using AuthenticationAPI.Data;
 using AuthenticationAPI.Utils.Logger;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

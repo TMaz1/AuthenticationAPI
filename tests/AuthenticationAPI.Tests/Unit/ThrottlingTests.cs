@@ -1,10 +1,10 @@
+using AuthenticationAPI.Configuration;
 using AuthenticationAPI.Dtos;
 using AuthenticationAPI.Services.Security;
 using AuthenticationAPI.Utils.Logger;
 using Microsoft.Extensions.Options;
 using StackExchange.Redis;
 using Xunit;
-using AuthenticationAPI.Configuration;
 
 namespace AuthenticationAPI.Tests.Unit;
 
