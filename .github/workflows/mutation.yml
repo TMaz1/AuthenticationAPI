@@ -1,0 +1,28 @@
+name: Mutation testing (manual / weekly)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * 0"
+
+permissions:
+  contents: read
+
+jobs:
+  stryker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - run: dotnet tool install -g dotnet-stryker
+      - run: dotnet restore AuthenticationAPI.sln
+      - name: Run Stryker on security-critical code (unit tests only)
+        run: dotnet stryker --config-file stryker-config.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: stryker-report
+          path: StrykerOutput/**

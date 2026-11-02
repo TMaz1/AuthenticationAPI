@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/stryker-mutator/stryker-net/master/src/Stryker.Core/Stryker.Core/stryker-config.schema.json",
+  "stryker-config": {
+    "solution": "AuthenticationAPI.sln",
+    "project": "AuthenticationAPI.csproj",
+    "test-projects": ["tests/AuthenticationAPI.Tests/AuthenticationAPI.Tests.csproj"],
+    "test-case-filter": "Category=Unit",
+    "mutate": [
+      "src/AuthenticationAPI/Services/Security/**/*.cs",
+      "src/AuthenticationAPI/Services/Password/**/*.cs",
+      "src/AuthenticationAPI/Services/Token/JwtTokenService.cs",
+      "src/AuthenticationAPI/Services/Notifications/OutboxProcessor.cs",
+      "src/AuthenticationAPI/Configuration/**/*.cs",
+      "src/AuthenticationAPI/Startup/ServiceCollectionExtensions.cs"
+    ],
+    "thresholds": { "high": 85, "low": 65, "break": 50 },
+    "reporters": ["html", "progress", "json"]
+  }
+}

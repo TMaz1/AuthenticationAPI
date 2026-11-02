@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>One-Time MFA Code</title>
+</head>
+
+<body>
+    <h2>Multi-Factor Authentication</h2>
+    <p>Hello,</p>
+    <p>We received a sign-in request for your account. Use the code below to finish signing in.</p>
+    <strong>{{OTP}}</strong>
+
+    <p>This one-time code is valid for <strong>{{EXPIRY_MINUTES}} minutes</strong>. Do not share it with anyone.</p>
+    <p>If you didn't request this, ignore this email.</p>
+
+    {{EMAIL_FOOTER}}
+</body>
+
+</html>

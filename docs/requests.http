@@ -1,0 +1,34 @@
+### REST Client / Rider HTTP file. Replace host; values are fictional.
+@host = https://localhost:7000
+
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{ "email": "ada@example.com", "password": "correct horse battery staple", "confirmPassword": "correct horse battery staple", "firstName": "Ada", "lastName": "Lovelace" }
+
+###
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{ "email": "ada@example.com", "password": "correct horse battery staple", "rememberMe": false }
+
+###
+POST {{host}}/api/auth/refresh-token
+Content-Type: application/json
+
+{ "token": "<refreshToken>" }
+
+###
+POST {{host}}/api/auth/mfa/verify
+Content-Type: application/json
+
+{ "email": "ada@example.com", "otp": "123456", "method": "Totp", "challengeToken": "<mfa.challengeToken>" }
+
+###
+POST {{host}}/api/auth/password-reset-request
+Content-Type: application/json
+
+{ "email": "ada@example.com" }
+
+###
+GET {{host}}/health/ready
